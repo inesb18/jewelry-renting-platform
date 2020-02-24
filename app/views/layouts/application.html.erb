@@ -10,7 +10,22 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= yield %>
+
+    <div class="content">
+
+      <%= render 'shared/navbar' %>
+
+      <%= yield %>
+
+
+      </div>
+
+    </div>
+
+    <footer class="footer-sticky">
+      Made with <i class="fas fa-heart"></i> at Le Wagon
+    </footer>
+
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>

@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $light-rose;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,13 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .link-to-home {
+  font-size: 30px;
+  color: white;
+  font-family: $headers-font;
+  &:hover {
+    text-decoration: none;
+  }
 }
