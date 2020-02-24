@@ -75,13 +75,13 @@ ActiveRecord::Schema.define(version: 2020_02_24_224557) do
     t.index ["rental_id"], name: "index_rentee_reviews_on_rental_id"
   end
 
-  create_table "unavailability", force: :cascade do |t|
+  create_table "unavailabilities", force: :cascade do |t|
     t.date "starting_date"
     t.date "end_date"
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_unavailability_on_product_id"
+    t.index ["product_id"], name: "index_unavailabilities_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,5 +106,5 @@ ActiveRecord::Schema.define(version: 2020_02_24_224557) do
   add_foreign_key "rentals", "products"
   add_foreign_key "rentals", "users"
   add_foreign_key "rentee_reviews", "rentals"
-  add_foreign_key "unavailability", "products"
+  add_foreign_key "unavailabilities", "products"
 end
