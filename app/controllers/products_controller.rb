@@ -1,4 +1,10 @@
 class ProductsController < ApplicationController
+
+  def index
+    @title = "All Jewelry"
+    @products = Product.all
+  end
+
   def new
     @product = Product.new
   end
