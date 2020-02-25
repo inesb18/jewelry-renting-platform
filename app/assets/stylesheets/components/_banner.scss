@@ -1,0 +1,20 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(rings.jpeg);
+  background-size: cover;
+  background-position: bottom;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  color: $dark-pink;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
