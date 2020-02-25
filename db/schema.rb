@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_224557) do
   end
 
   create_table "unavailabilities", force: :cascade do |t|
-    t.date "starting_date"
+    t.date "start_date"
     t.date "end_date"
     t.bigint "product_id"
     t.datetime "created_at", null: false
