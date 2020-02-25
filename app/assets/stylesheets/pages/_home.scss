@@ -1,1 +1,23 @@
-// Specific CSS for your home-page
+.necklaces {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('necklace.jpg');
+}
+
+.rings {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('ring.jpeg');
+}
+
+.bracelets {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('bracelets.jpg');
+}
+
+.earrings {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('earrings.jpeg');
+}
+
+.sets {
+ background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('set.jpg') ;
+}
+
+.all {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('all.jpg');
+}

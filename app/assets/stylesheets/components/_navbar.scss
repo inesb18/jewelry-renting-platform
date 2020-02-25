@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $light-rose;
+  a.white-link {
+    color: white !important;
+    font-weight: bold;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +13,23 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .link-to-home {
+  color: white !important;
+  font-size: 30px;
+  font-weight: normal;
+  font-family: $headers-font;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.navbar-lewagon a.dropdown-link {
+  color: $dark-pink !important;
+}
+
+.navbar-lewagon a#sign-out-dropdown-link {
+  color: $dark-blue !important;
+    font-weight: bold;
 }
