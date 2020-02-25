@@ -2,17 +2,5 @@
 <%= link_to new_product_path do %>
   Add a product
 <% end %>
-<% if @products.empty? %>
-  <p>No products!</p>
-<% else %>
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-        <%= product.name %>
-        <% if product.photo.attached? %>
-          <%= cl_image_tag(product.photo.key) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+
+<%= render 'shared/listproducts' %>
