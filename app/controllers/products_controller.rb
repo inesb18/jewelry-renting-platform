@@ -1,8 +1,15 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-    @title = "All Jewelry"
-    @products = Product.all
+    @category = params[:category]
+    if %w(necklaces earrings bracelets rings sets other).include?(@category)
+      @title = @category
+      @products = Product.all.select {|p| p.category == @category}
+    else
+      @title = "all jewelry"
+      @products = Product.all
+    end
   end
 
   def new
