@@ -16,6 +16,7 @@
 }
 
 .navbar-lewagon .link-to-home {
+  color: white !important;
   font-size: 30px;
   font-weight: normal;
   font-family: $headers-font;
@@ -24,11 +25,11 @@
   }
 }
 
-a.dropdown-link {
+.navbar-lewagon a.dropdown-link {
   color: $dark-pink !important;
 }
 
-a#sign-out-dropdown-link {
+.navbar-lewagon a#sign-out-dropdown-link {
   color: $dark-blue !important;
     font-weight: bold;
 }
