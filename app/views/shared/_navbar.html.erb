@@ -28,7 +28,7 @@
             <a class="dropdown-link dropdown-item" href="#">My bookings</a>
             <a class="dropdown-link dropdown-item" href="#">My jewels for rent</a>
             <a class="dropdown-link dropdown-item" href="#">My account</a>
-            <%= link_to "#", id:"sign-out-dropdown-link", class:"dropdown-link dropdown-item" do %>
+            <%= link_to destroy_user_session_path, method: :delete, id:"sign-out-dropdown-link", class:"dropdown-link dropdown-item" do %>
               Sign out
             <% end %>
           </div>
