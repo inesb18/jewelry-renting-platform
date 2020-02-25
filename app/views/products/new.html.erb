@@ -2,6 +2,7 @@
 
 <%= simple_form_for @product do |f| %>
   <%= f.input :name, autofocus: true%>
+  <%= f.input :category, collection: %w(necklaces earrings bracelets rings sets other) %>
   <%= f.input :description, autofocus: true%>
   <%= f.input :price, label: "Daily rate" %>
   <br>
