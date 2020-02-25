@@ -1,8 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light-rose;
-  a {
-    color: white;
+  a.white-link {
+    color: white !important;
     font-weight: bold;
   }
 }
@@ -25,9 +25,10 @@
 }
 
 a.dropdown-link {
-  color: $dark-pink;
+  color: $dark-pink !important;
 }
 
 a#sign-out-dropdown-link {
-  color: $dark-blue;
+  color: $dark-blue !important;
+    font-weight: bold;
 }
