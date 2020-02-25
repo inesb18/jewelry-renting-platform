@@ -2,7 +2,7 @@
   justify-content: space-between;
   background: $light-rose;
   a {
-    color: white !important;
+    color: white;
     font-weight: bold;
   }
 }
@@ -22,4 +22,12 @@
   &:hover {
     text-decoration: none;
   }
+}
+
+a.dropdown-link {
+  color: $dark-pink;
+}
+
+a#sign-out-dropdown-link {
+  color: $dark-blue;
 }
