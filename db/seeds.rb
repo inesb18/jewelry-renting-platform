@@ -23,37 +23,57 @@ lea.save!
 
 #necklaces
 pearl_necklace = Product.new(name: "Women's South Sea Cultured Peal Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-south-sea-pearl-necklace-18k-white-gold-/57316_main?$phab_detailmain$")
+pearl_necklace.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 pearl_necklace.save!
 
 rhinestone_necklace = Product.new(name: "Simple Bridal Rhinestone Necklace", price: 53.00, description: "A simple but glamorous necklace that will stand out at any wedding!", user: lea)
+file = URI.open("https://i.etsystatic.com/8728158/r/il/55af54/1659793344/il_1588xN.1659793344_575v.jpg")
+rhinestone_necklace.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 rhinestone_necklace.save!
 
 #earrings
 diamond_earrings = Product.new(name: "Round Diamond Earrings", price: 68.00, description: "Stunning diamond earrings that will match any outfit! You can dress these earrings up or down.", user: nathalie)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-diamond-platinum-stud-earrings-/49994_main?$phab_detailmain$")
+diamond_earrings.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 diamond_earrings.save!
 
 gold_plated_earrings = Product.new(name: "Gold Plated Teardrop Dangle Earrings", price: 32.00, description: "High quality gold plating, perfect for any prom, wedding, or special occasion", user: lea)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-diamond-drop-disc-earrings-14k-/63089_main?$phab_detailmain$")
+gold_plated_earrings.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 gold_plated_earrings.save!
 
 #bracelets
 heart_bracelet = Product.new(name: "Petite Heart Bracelet", price: 17.00, description: "14k rose gold with a delicate chain that can be adjusted in length", user: nathalie)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-petite-heart-bracelet-in-14k-rose-gold-/65382_main?$phab_detailmain$")
+heart_bracelet.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 heart_bracelet.save!
 
 silver_bracelet = Product.new(name: "Sterling Silver Beads Bracelet", price: 28.00, description: "Sterling silver beads bracelet that adds luxe and shine to your look", user: lea)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-sterling-silver-bead-bracelet-/UB16700500_main?$phab_detailmain$")
+silver_bracelet.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 silver_bracelet.save!
 
 #rings
-amethyst_ring = Product.new(name: "10k White Gold Amethyst Ring", price: 45.00, description: "Antique-shaped amethyst with beautiful round cut diamonds", user: nathalie)
+amethyst_ring = Product.new(name: "10k Rose Gold Amethyst Ring", price: 45.00, description: "Antique-shaped amethyst with beautiful round cut diamonds", user: nathalie)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-cushion-cut-amethyst-diamond-halo-cocktail-ring-14k-rose-gol-/66022_main?$phab_detailmain$")
+amethyst_ring.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 amethyst_ring.save!
 
-topaz_ring = Product.new(name: "Blue Topaz and Diamond Cocktail Ring", price: 74.00, description: "Vibrant Topaz makes a fashion forward statement in this fashion-forward ring!", user: lea)
+topaz_ring = Product.new(name: "Blue Topaz and Diamond Cocktail Ring", price: 74.00, description: "Vibrant Topaz makes a statement in this fashion-forward ring!", user: lea)
+file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-emerald-sky-blue-topaz-an-diamond-cocktail-ring-in-14k-white-gold-/75817_main?$phab_detailmain$")
+topaz_ring.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 topaz_ring.save!
 
 #sets
-crystal_bridal_set = Product.new(name: "Crystal Bridal Necklace and Earrings Set", price: 53.00, description: "Make a statement with this bridal jewelry set of necklace and earrings with sparkly crystals!", user: nathalie)
+crystal_bridal_set = Product.new(name: "Crystal and Pearl Bridal Necklace and Earrings Set", price: 53.00, description: "Make a statement with this bridal jewelry set of necklace and earrings with sparkly crystals!", user: nathalie)
+file  = URI.open("https://i.etsystatic.com/5486852/r/il/fdb0a5/1148745606/il_570xN.1148745606_g9yr.jpg")
+crystal_bridal_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 crystal_bridal_set.save!
 
-diamond_set = Product.new(name: "Diamond Solitaire Pendant and Earrings Set in 10K White Gold", price: 71.00, description: "A timeless classic, this diamond solitaire pendant and earrings set complements elegant style!", user: lea)
+diamond_set = Product.new(name: "Diamond Necklace and Earrings Set in Silver", price: 71.00, description: "A timeless classic, this diamond solitaire pendant and earrings set complements elegant style!", user: lea)
+file = URI.open("https://i.etsystatic.com/10154392/r/il/6bb02d/1776913841/il_570xN.1776913841_kb60.jpg")
+diamond_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 diamond_set.save!
 
 #unavailablities
