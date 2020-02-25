@@ -6,5 +6,6 @@ class Product < ApplicationRecord
   validates :user, presence: true
   validates :name, presence: true
   validates :price, presence: true
+  validates :photo, attached: true
   validates_numericality_of :price, :greater_than => 0.0
 end

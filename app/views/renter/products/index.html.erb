@@ -1,12 +1,15 @@
 <h1>My products for rent</h1>
+<%= link_to new_product_path do %>
+  Add a product
+<% end %>
 <% if @products.empty? %>
   <p>No products !</p>
 <% else %>
   <ul>
-    <li>
-      <% @products.each do |product| %>
+    <% @products.each do |product| %>
+      <li>
         <%= product.name %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   </ul>
 <% end %>
