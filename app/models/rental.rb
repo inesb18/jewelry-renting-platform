@@ -8,6 +8,7 @@ class Rental < ApplicationRecord
   validates :product, presence: true
   validates :user, presence: true
   validate :end_after_start
+  validate :future_dates
 
   def end_after_start
   return if end_date.blank? || start_date.blank?
@@ -16,4 +17,10 @@ class Rental < ApplicationRecord
     errors.add(:end_date, "must be after the start date")
   end
  end
+
+  def future_dates
+    if start_date <= Date.today
+      errors.add(:start_date, "must be after today")
+    end
+   end
 end
