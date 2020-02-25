@@ -3,8 +3,10 @@
   <p>No products !</p>
 <% else %>
   <ul>
-    <% @products.each do |product| %>
-      <%= product.name %>
-    <% end %>
+    <li>
+      <% @products.each do |product| %>
+        <%= product.name %>
+      <% end %>
+    </li>
   </ul>
 <% end %>
