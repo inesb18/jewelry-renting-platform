@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :rentals, only: :show
   namespace :renter do
     resources :rentals, only: [:index]
+    resources :products, only: [:index]
   end
   namespace :rentee do
     resources :rentals, only: [:index]
