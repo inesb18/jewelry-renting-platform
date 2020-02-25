@@ -1,0 +1,12 @@
+<h1>My products for rent</h1>
+<% if @products.empty? %>
+  <p>No products !</p>
+<% else %>
+  <ul>
+    <li>
+      <% @products.each do |product| %>
+        <%= product.name %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
