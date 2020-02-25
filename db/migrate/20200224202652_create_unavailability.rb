@@ -1,7 +1,7 @@
 class CreateUnavailability < ActiveRecord::Migration[5.2]
   def change
     create_table :unavailabilities do |t|
-      t.date :starting_date
+      t.date :start_date
       t.date :end_date
       t.references :product, foreign_key: true
 
