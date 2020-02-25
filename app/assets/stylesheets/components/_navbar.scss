@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light-rose;
+  a {
+    color: white !important;
+    font-weight: bold;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,7 +17,7 @@
 
 .navbar-lewagon .link-to-home {
   font-size: 30px;
-  color: white;
+  font-weight: normal;
   font-family: $headers-font;
   &:hover {
     text-decoration: none;
