@@ -1,0 +1,17 @@
+<h1>Add your product</h1>
+
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, autofocus: true%>
+  <%= f.input :description, autofocus: true%>
+  <%= f.input :price, label: "Daily rate" %>
+  <br>
+
+  <label class="btn-light clickable">
+    Upload a photo
+    <span style="display:none;">
+      <%= f.input :photo, as: :file %>
+    </span>
+  </label>
+  <br>
+  <%= f.button :submit, class:"btn-heavy" %>
+<% end %>
