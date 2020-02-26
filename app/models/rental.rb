@@ -28,7 +28,6 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :product
   has_many :renter_reviews
-  has_many :unavailabilities, dependent: :destroy
   has_many :product_reviews
   validates :start_date, presence: :true
   validates :end_date, presence: :true
