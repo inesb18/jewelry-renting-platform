@@ -1,9 +1,20 @@
-<h1>Booking for <%= @product.name %></h1>
+<div class="container mt-5">
+
+<h1 class="text-center mb-5">Booking for <%= @product.name %></h1>
 <%= simple_form_for [@product, @rental] do |f| %>
   <%= f.error :base %>
   <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true %>
   <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true %>
   <div id="price" data-amount-cents="<%= @product.price * 100%>"></div>
-  <div id="total_price"></div>
-  <%= f.button :submit, class:"btn-heavy" %>
+  <p>
+    Total price for the rental:  <span id="total_price">...</span>
+  </p>
+   <div class="text-center">
+
+    <%= f.button :submit, "Submit and shine", class:"btn-heavy" %>
+
+  </div>
+
 <% end %>
+
+</div>
