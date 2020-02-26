@@ -1,3 +1,11 @@
-<h1><%= @title.capitalize %></h1>
+<div class="banner banner-category <%= @category %>">
+  <div class="container">
+    <h1><%= @title.capitalize %></h1>
+  </div>
+</div>
 
-<%= render 'shared/listproducts' %>
+<div class="container mt-3">
+
+  <%= render 'shared/listproducts' %>
+
+</div>

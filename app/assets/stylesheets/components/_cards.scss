@@ -17,3 +17,54 @@
     color: white;
   }
 }
+
+
+.card-product {
+  margin: 15px 0;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-product > img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 22px;
+  margin: 0;
+  margin-right: 40px;
+}
+
+.card-product p {
+  color: $dark-blue;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0;
+}
+
+.card-product .card-product-infos {
+  border: 2px solid $dark-pink;
+  height: 130px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.card-product-infos .card-product-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-product-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}

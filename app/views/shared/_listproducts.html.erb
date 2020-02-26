@@ -1,15 +1,42 @@
 <% if @products.empty? %>
   <p>No products!</p>
 <% else %>
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product_path(product) do %>
-          <%= product.name %>
+
+    <div class="container mt-3">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-sm-12 col-md-6">
+
+            <%= link_to product_path(product), class:"card-product-link" do %>
+
+              <div class="card-product">
+
+                <%= cl_image_tag(product.photo.key) %>
+
+                <div class="card-product-infos">
+
+                  <h2><%= product.name %></h2>
+
+                  <p class="card-product-pricing">$<%= product.price %>/day</p>
+
+                  <% if product.user.photo.attached?  %>
+                    <%= cl_image_tag(product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                        class:"card-product-user avatar avatar-bordered") %>
+                  <% else %>
+                    <%= image_tag('user.png',
+                        class:"card-product-user avatar avatar-bordered") %>
+                  <% end %>
+
+                </div>
+              </div>
+
+
+          <% end %>
+
+
+          </div>
         <% end %>
-        (<%= product.category %>)
-        <%= cl_image_tag(product.photo.key) %>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+    </div>
+
 <% end %>
