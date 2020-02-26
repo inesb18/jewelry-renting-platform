@@ -1,4 +1,4 @@
-class Renter::ProductsController < ApplicationController
+class Owner::ProductsController < ApplicationController
   def index
     @products = current_user.products
   end

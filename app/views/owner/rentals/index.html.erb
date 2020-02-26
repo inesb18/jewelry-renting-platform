@@ -1,4 +1,4 @@
-<h1>My rentals as rentee</h1>
+<h1>My rentals as owner</h1>
 
 <% if @rentals.empty?  %>
   <p>No rental.</p>
@@ -6,7 +6,7 @@
   <ul>
     <% @rentals.each do |rental| %>
       <li>
-        <%= link_to rentee_rental_path(rental) do %>
+        <%= link_to owner_rental_path(rental) do %>
           <%= rental %>
         <% end %>
       </li>

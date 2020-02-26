@@ -1,6 +1,6 @@
-class CreateRenteeReviews < ActiveRecord::Migration[5.2]
+class CreateRenterReviews < ActiveRecord::Migration[5.2]
   def change
-    create_table :rentee_reviews do |t|
+    create_table :renter_reviews do |t|
       t.integer :rating
       t.text :content
       t.references :rental, foreign_key: true
