@@ -1,8 +1,9 @@
 .product-page-left {
   height: 350px;
   width: 400px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   padding: 30px;
   margin-top: 120px;
   border: 2px solid $light-rose;
