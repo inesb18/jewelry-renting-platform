@@ -4,10 +4,11 @@
   <ul>
     <% @products.each do |product| %>
       <li>
-        <%= product.name %>(<%= product.category %>)
-        <% if product.photo.attached? %>
-          <%= cl_image_tag(product.photo.key) %>
+        <%= link_to product_path(product) do %>
+          <%= product.name %>
         <% end %>
+        (<%= product.category %>)
+        <%= cl_image_tag(product.photo.key) %>
       </li>
     <% end %>
   </ul>
