@@ -27,7 +27,9 @@
           <% end %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-link dropdown-item" href="#">My bookings</a>
+            <%= link_to rentee_rentals_path, id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
+              My rentals
+            <% end %>
             <%= link_to renter_products_path, id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
               My jewels for rent
             <% end %>
