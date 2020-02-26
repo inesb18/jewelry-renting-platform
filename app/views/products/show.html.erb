@@ -1,30 +1,38 @@
-<!-- <h1><%= @product.name %></h1>
-<p><%= @product.category %></p>
-<p><%= @product.description %></p>
-<p><%= @product.price %></p>
-<p><%= @product.user %></p>
-<%= cl_image_tag(@product.photo.key) %>
 
-<%= link_to new_product_rental_path(@product) do %>
-  Rent this jewelry
-<% end %> -->
+<div class="container mt-3">
 
-<div class="card-trip">
-  <%= cl_image_tag(@product.photo.key, :width => 400, :crop => "pad") %>
-  <div class="card-trip-infos">
-    <div>
-      <h2> <%= @product.name %></h2>
-      <p><%= @product.category %></p>
-      <p><%= @product.description %></p>
-      <p><%= @product.user %></p>
+  <div class="d-flex                                                                                                                                                                                                                                                                                                         ">
+
+    <div class="product-page-left" style="background-image: url('<%= cl_image_path @product.photo.key, crop: :fill %>')">
     </div>
-    <h2 class="card-trip-pricing"><%= @product.price %></h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
+    <div class="product-page-right">
+      <h1><%= @product.name %></h1>
+      <div class="product-page-right-category">
+         <p><em><%= @product.category.capitalize %></em></p>
+      </div>
+      <p><%= @product.description %></p>
+      <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
+
+      <div class="product-user d-flex">
+        <p><strong> Owner: </strong> <%= @product.user.first_name %></p>
+
+         <%= cl_image_tag(@product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                class:"avatar") %>
+
+      </div>
+
+
+
+      <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
+        Rent this jewelry
+      <% end %>
+
+    </div>
+
+
   </div>
 </div>
 
 
-<%= link_to new_product_rental_path(@product) do %>
-  Rent this jewelry
-<% end %>
 
