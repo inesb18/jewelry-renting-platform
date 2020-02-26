@@ -6,13 +6,13 @@ Rails.application.routes.draw do
     resources :rentals, only: [:new,:create]
   end
   resources :users, only: [] do
-    resources :rentee_reviews, only: [:create]
+    resources :renter_reviews, only: [:create]
   end
-  namespace :renter do
+  namespace :owner do
     resources :rentals, only: [:index, :show]
     resources :products, only: [:index]
   end
-  namespace :rentee do
+  namespace :renter do
     resources :rentals, only: [:index, :show]
   end
 end

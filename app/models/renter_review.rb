@@ -1,4 +1,4 @@
-class RenteeReview < ApplicationRecord
+class RenterReview < ApplicationRecord
   belongs_to :rental
   validates :content, presence: true
   validates :rating, presence: true
