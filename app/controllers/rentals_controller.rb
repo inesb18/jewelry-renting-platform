@@ -10,7 +10,7 @@ class RentalsController < ApplicationController
     @rental.product = @product
     @rental.user = current_user
     if @rental.save
-      redirect_to products_path
+      redirect_to renter_rental_path(@rental)
     else
       render :new
     end
