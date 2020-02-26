@@ -3,3 +3,8 @@
 <p><%= @product.description %></p>
 <p><%= @product.price %></p>
 <p><%= @product.user %></p>
+<%= cl_image_tag(@product.photo.key) %>
+
+<%= link_to new_product_rental_path(@product) do %>
+  Rent this jewelry
+<% end %>
