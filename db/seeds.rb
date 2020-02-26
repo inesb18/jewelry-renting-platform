@@ -22,7 +22,7 @@ lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
 
 #necklaces
-pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Peal Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
+pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Pearl Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
 file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-south-sea-pearl-necklace-18k-white-gold-/57316_main?$phab_detailmain$")
 pearl_necklace.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 pearl_necklace.save!
@@ -82,6 +82,13 @@ dates1.save!
 
 dates2 = Unavailability.new(start_date: Date.parse("August 15 2020") , end_date: Date.parse("August 16 2020"), product: rhinestone_necklace)
 dates2.save!
+
+#ines
+ines = User.new(first_name: "Ines", last_name: "Belghiti", address: "125 av Mozart Est, Montreal, QC", email: "ines@mail.com", password: "hello123" )
+file = URI.open("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
+ines.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+ines.save!
+
 
 puts "done seeding!"
 
