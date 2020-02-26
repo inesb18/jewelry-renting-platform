@@ -1,0 +1,22 @@
+  <% if @rentals.empty?  %>
+    <p>No rental.</p>
+  <% else %>
+
+      <% @rentals.each do |rental| %>
+
+        <div class="card-category-order">
+          <ul>
+          <p class='pdt'><strong>Product:</strong> <%= rental.product.name %></p>
+          <p> <strong>From:</strong> <%= rental.start_date.strftime('%b %d, %Y') %></p>
+          <p> <strong>To:</strong> <%= rental.end_date.strftime('%b %d, %Y') %></p>
+          <p> <strong>Owner:</strong> <%= rental.product.user.first_name %> <%= rental.product.user.last_name %></p>
+          <p> <strong>Renter:</strong> <%= rental.user.first_name %> <%= rental.user.last_name %></p>
+          </ul>
+          <div class="end">
+            <%= cl_image_tag(rental.product.photo.key, width: 160, height: 180) %>
+          </div>
+        </div>
+
+      <% end %>
+
+  <% end %>

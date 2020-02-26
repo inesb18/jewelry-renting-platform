@@ -1,10 +1,19 @@
-<h1>My products for rent</h1>
-<%= link_to owner_rentals_path do %>
-  Rentals
-<% end %>
-<%= link_to new_product_path do %>
-  Add a product
-<% end %>
+<div class="container mt-3">
 
-<%= render 'shared/listproducts' %>
+  <h1 class="text-center mb-5">My products for rent</h1>
 
+  <div class="d-flex justify-content-between mb-5">
+
+    <%= link_to owner_rentals_path, class:'btn-heavy text-center' do %>
+      Rentals
+    <% end %>
+
+    <%= link_to new_product_path, class:"btn-light" do %>
+      Add a product
+    <% end %>
+
+  </div>
+
+  <%= render 'shared/listproducts' %>
+
+</div>

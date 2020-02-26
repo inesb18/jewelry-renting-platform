@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @category = params[:category]
@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
       @title = @category
       @products = Product.all.select {|p| p.category == @category}
     else
+      @category = "all"
       @title = "all jewelry"
       @products = Product.all
     end

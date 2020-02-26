@@ -1,4 +1,6 @@
-<h1>Add your product</h1>
+<div class="container mt-5">
+
+<h1 class="text-center mb-5">Add your product</h1>
 
 <%= simple_form_for @product do |f| %>
   <%= f.input :name, autofocus: true%>
@@ -14,5 +16,10 @@
     </span>
   </label>
   <br>
-  <%= f.button :submit, class:"btn-heavy" %>
+  <div class="text-center">
+    <%= f.button :submit, class:"btn-heavy" %>
+  </div>
+
 <% end %>
+
+</div>

@@ -5,14 +5,15 @@
 }
 
 .banner#home-page {
-  background-image: linear-gradient(rgba(50,50,50,0.18),rgba(50,50,50,0.18)), url(rings.jpeg);
+  background-image: linear-gradient(rgba(50,50,50,0.18),rgba(50,50,50,0.18)), asset-url('rings.jpeg');
 }
 
 .banner h1 {
   color: $dark-pink;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
+  margin-bottom: 12px;
 }
 
 .banner p {
@@ -21,3 +22,38 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.banner-category h1 {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  text-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+
+.necklaces {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('necklace.jpg');
+}
+
+.rings {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('ring.jpeg');
+}
+
+.bracelets {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('bracelets.jpg');
+}
+
+.earrings {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('earrings.jpeg');
+}
+
+.sets {
+ background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('set.jpg') ;
+}
+
+.all {
+  background-image: linear-gradient(rgba(120,120,120,0.3), rgba(120,120,120,0.3)), asset-url('all.jpg');
+}
+
+
+
+

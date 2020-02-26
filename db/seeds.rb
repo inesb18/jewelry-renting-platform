@@ -66,7 +66,7 @@ topaz_ring.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png'
 topaz_ring.save!
 
 #sets
-crystal_bridal_set = Product.new(category: "sets", name: "Crystal and Pearl Bridal Necklace and Earrings Set", price: 53.00, description: "Make a statement with this bridal jewelry set of necklace and earrings with sparkly crystals!", user: nathalie)
+crystal_bridal_set = Product.new(category: "sets", name: "Crystal and Pearl Necklace and Earrings Set", price: 53.00, description: "Make a statement with this bridal jewelry set of necklace and earrings with sparkly crystals!", user: nathalie)
 file  = URI.open("https://i.etsystatic.com/5486852/r/il/fdb0a5/1148745606/il_570xN.1148745606_g9yr.jpg")
 crystal_bridal_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 crystal_bridal_set.save!

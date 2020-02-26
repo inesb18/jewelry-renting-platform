@@ -1,15 +1,9 @@
-<h1>My rentals as renter</h1>
+<div class="container mt-5">
 
-<% if @rentals.empty?  %>
-  <p>No rental.</p>
-<% else %>
-  <ul>
-    <% @rentals.each do |rental| %>
-      <li>
-        <%= link_to renter_rental_path(rental) do %>
-          <%= rental %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <h1 class='text-center mb-5'>My upcoming rentals</h1>
+
+  <%= render 'shared/listrentals' %>
+
+
+
+</div>

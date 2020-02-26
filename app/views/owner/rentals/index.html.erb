@@ -1,15 +1,9 @@
-<h1>My rentals as owner</h1>
+<div class="container mt-5">
 
-<% if @rentals.empty?  %>
-  <p>No rental.</p>
-<% else %>
-  <ul>
-    <% @rentals.each do |rental| %>
-      <li>
-        <%= link_to owner_rental_path(rental) do %>
-          <%= rental %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <h1 class='text-center mb-5'>My rentals as owner</h1>
+
+  <%= render 'shared/listrentals' %>
+
+
+
+</div>
