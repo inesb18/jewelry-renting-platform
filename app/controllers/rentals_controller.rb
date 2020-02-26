@@ -10,6 +10,7 @@ class RentalsController < ApplicationController
     @rental.product = @product
     @rental.user = current_user
     if @rental.save
+      new_un = Unavailability.create(product: @product, start_date: @rental.start_date, end_date: @rental.end_date)
       redirect_to root_path
     else
       render :new
