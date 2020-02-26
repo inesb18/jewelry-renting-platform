@@ -33,3 +33,10 @@
   color: $dark-blue !important;
     font-weight: bold;
 }
+
+.navbar-nav {
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+
+}
