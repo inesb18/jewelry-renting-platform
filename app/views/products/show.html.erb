@@ -1,4 +1,4 @@
-<h1><%= @product.name %></h1>
+<!-- <h1><%= @product.name %></h1>
 <p><%= @product.category %></p>
 <p><%= @product.description %></p>
 <p><%= @product.price %></p>
@@ -7,4 +7,24 @@
 
 <%= link_to new_product_rental_path(@product) do %>
   Rent this jewelry
+<% end %> -->
+
+<div class="card-trip">
+  <%= cl_image_tag(@product.photo.key, :width => 400, :crop => "pad") %>
+  <div class="card-trip-infos">
+    <div>
+      <h2> <%= @product.name %></h2>
+      <p><%= @product.category %></p>
+      <p><%= @product.description %></p>
+      <p><%= @product.user %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= @product.price %></h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+
+
+<%= link_to new_product_rental_path(@product) do %>
+  Rent this jewelry
 <% end %>
+

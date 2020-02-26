@@ -22,7 +22,7 @@ lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
 
 #necklaces
-pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Peal Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
+pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Pearl Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
 file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-south-sea-pearl-necklace-18k-white-gold-/57316_main?$phab_detailmain$")
 pearl_necklace.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 pearl_necklace.save!
