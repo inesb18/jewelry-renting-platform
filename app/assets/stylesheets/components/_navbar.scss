@@ -7,13 +7,27 @@
   }
 }
 
+.navbar-items {
+  display: flex;
+  flex-grow: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+.navbar-nav li {
+  text-align: center;
+  width: 100px;
+}
+
+
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
 
 .navbar-lewagon .link-to-home {
   color: white !important;
@@ -34,9 +48,4 @@
     font-weight: bold;
 }
 
-.navbar-nav {
-  width: 90vw;
-  display: flex;
-  justify-content: space-around;
 
-}
