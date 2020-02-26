@@ -1,8 +1,8 @@
-<% if @products.empty? %>
-  <p>No products!</p>
-<% else %>
 
-    <div class="container mt-3">
+  <% if @products.empty? %>
+      <p class="text-center m-10">No products!</p>
+  <% else %>
+
       <div class="row">
         <% @products.each do |product| %>
           <div class="col-sm-12 col-md-6">
@@ -37,6 +37,6 @@
           </div>
         <% end %>
       </div>
-    </div>
 
-<% end %>
+  <% end %>
+
