@@ -3,7 +3,7 @@ class MyValidator < ActiveModel::Validator
     valid = true
     un_start_date = nil
     un_end_date = nil
-    record.product.unavailabilities.each do |un|
+    (record.product.unavailabilities + record.product.rentals).each do |un|
       if record.start_date <= un.end_date && record.start_date >= un.start_date
         valid = false
         un_start_date = un.start_date
@@ -28,6 +28,7 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :product
   has_many :rentee_reviews
+  has_many :unavailabilities, dependent: :destroy
   has_many :product_reviews
   validates :start_date, presence: :true
   validates :end_date, presence: :true
