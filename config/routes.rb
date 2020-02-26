@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :rentee_reviews, only: [:create]
   end
-  resources :rentals, only: :show
   namespace :renter do
-    resources :rentals, only: [:index]
+    resources :rentals, only: [:index, :show]
     resources :products, only: [:index]
   end
   namespace :rentee do
-    resources :rentals, only: [:index]
+    resources :rentals, only: [:index, :show]
   end
 end

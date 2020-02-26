@@ -5,4 +5,8 @@ class Renter::RentalsController < ApplicationController
       @rentals + prod.rentals
     end
   end
+
+  def show
+    @rental = Rental.find(params[:id])
+  end
 end
