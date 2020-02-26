@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
       @title = @category
       @products = Product.all.select {|p| p.category == @category}
     else
+      @category = "all"
       @title = "all jewelry"
       @products = Product.all
     end
