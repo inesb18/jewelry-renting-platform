@@ -1,21 +1,26 @@
-class MyValidator < ActiveModel::Validator
+class Availability < ActiveModel::Validator
   def validate(record)
-    valid = true
     un_start_date = nil
     un_end_date = nil
-    (record.product.unavailabilities + record.product.rentals).each do |un|
-      if record.start_date <= un.end_date && record.start_date >= un.start_date
-        valid = false
-        un_start_date = un.start_date
-        un_end_date = un.end_date
-      elsif record.end_date <= un.end_date && record.end_date >= un.start_date
-        valid = false
-        un_start_date = un.start_date
-        un_end_date = un.end_date
-      elsif record.start_date < un.start_date && record.end_date > un.end_date
-        valid = false
-        un_start_date = un.start_date
-        un_end_date = un.end_date
+    valid = (record.product.unavailabilities + record.product.rentals.where(confirmed: true)).all? do |un|
+      if un != record
+        if record.start_date <= un.end_date && record.start_date >= un.start_date
+          un_start_date = un.start_date
+          un_end_date = un.end_date
+          false
+        elsif record.end_date <= un.end_date && record.end_date >= un.start_date
+          un_start_date = un.start_date
+          un_end_date = un.end_date
+          false
+        elsif record.start_date < un.start_date && record.end_date > un.end_date
+          un_start_date = un.start_date
+          un_end_date = un.end_date
+          false
+        else
+          true
+        end
+      else
+        true
       end
     end
     unless valid
@@ -37,17 +42,24 @@ class Rental < ApplicationRecord
   validate :future_dates
   validate :end_after_start
   validate :different_dates
+  validate :not_owner_booking
 
   include ActiveModel::Validations
-  validates_with MyValidator
+  validates_with Availability
+
+  def not_owner_booking
+    if product.user == user
+      errors.add(:base, "You can't rent your own jewelry.")
+    end
+  end
 
   def end_after_start
-  return if end_date.blank? || start_date.blank?
+    return if end_date.blank? || start_date.blank?
 
-  if end_date < start_date
-    errors.add(:end_date, "must be after the start date")
-  end
- end
+    if end_date < start_date
+      errors.add(:end_date, "must be after the start date")
+    end
+   end
 
   def future_dates
     if start_date <= Date.today
