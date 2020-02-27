@@ -67,6 +67,18 @@
   object-fit: cover;
 }
 
+.background {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
 
 .card-product .card-product-infos {
   border: 1.5px solid $dark-pink;
