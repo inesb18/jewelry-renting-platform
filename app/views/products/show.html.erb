@@ -10,7 +10,7 @@
 
       <div class="product-infos">
 
-        <h1 class='text-center'><%= @product.name %></h1>
+        <h1 class='text-center product-name'><%= @product.name %></h1>
 
         <div class="product-category-and-owner d-flex align-items-center justify-content-between">
 
@@ -30,14 +30,21 @@
 
         <p><%= @product.description %></p>
         <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
+        <% if current_user %>
+          <p class="product-distance mt-3">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= Geocoder::Calculations.distance_between(current_user.address, @product.user.address).round(2) %> kms from you!
+          </p>
+        <% end %>
 
       </div>
 
 
 
       <div class="text-center">
+        
         <% if policy(@rental).new? %>
-          <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
+          <%= link_to new_product_rental_path(@product), class:'btn btn-primary rent-button' do %>
             Rent this jewelry
           <% end %>
         <% end %>

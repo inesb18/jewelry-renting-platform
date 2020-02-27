@@ -3,13 +3,18 @@ class ProductsController < ApplicationController
 
   def index
     @category = params[:category]
+    @near_me = params[:near_me]
+    @products = policy_scope(Product)
+    if @near_me == "true" && current_user
+      users_near = User.near(current_user.address, 20)
+      @products = policy_scope(Product).select{ |p| users_near.include?(p.user) }
+    end
     if %w(necklaces earrings bracelets rings sets other).include?(@category)
       @title = @category
-      @products = policy_scope(Product).select {|p| p.category == @category}
+      @products = @products.select {|p| p.category == @category}
     else
       @category = "all"
       @title = "all jewelry"
-      @products = policy_scope(Product)
     end
   end
 
@@ -36,6 +41,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def near_me
+    @products = Product.all
+    @title = 'Jewels near you'
+    render :index
+  end
+
   def edit
     @product = Product.find(params[:id])
     authorize(@product)
@@ -55,7 +66,6 @@ class ProductsController < ApplicationController
     # redirect_to owner_products_path
     redirect_to products_path
   end
-
 
   private
 
