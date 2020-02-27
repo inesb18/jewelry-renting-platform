@@ -31,6 +31,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def near_me
+    @products = Product.all
+    @title = 'Jewels near you'
+    render :index
+  end
+
   private
 
   def product_params

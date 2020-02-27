@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'products/near-me', to: 'products#near_me', as: 'products_near_me'
   resources :products, only: [:index, :new, :create, :show, :delete] do
     resources :product_reviews, only: [:create]
     resources :rentals, only: [:new,:create]
