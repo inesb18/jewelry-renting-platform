@@ -1,49 +1,24 @@
 .product-page-left {
-  height: 350px;
-  width: 400px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 30px;
-  margin-top: 120px;
   border: 2px solid $light-rose;
-
+  width: 450px;
 }
 
 .product-page-right {
   margin-left: 100px;
-  margin-top: 100px;
-}
-
-.product-page-right h1 {
-  font-size: 35px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.product-page-right p {
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.product-page-right-category p {
-  font-size: 20px;
-  margin-bottom: 50px;
-}
-
-.avatar img {
-  background: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.product-user {
-  display: flex-end;
-  margin-bottom: 20px;
+  padding: 10px;
+  flex-grow: 1;
+  h1 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .product-user p {
   margin-right: 10px;
-  margin-bottom: 40px;
 }
+
