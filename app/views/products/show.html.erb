@@ -1,32 +1,45 @@
 
-<div class="container mt-3">
+<div class="container mt-5">
 
-  <div class="d-flex                                                                                                                                                                                                                                                                                                         ">
+  <div class="product d-flex">
 
-    <div class="product-page-left" style="background-image: url('<%= cl_image_path @product.photo.key, crop: :fill %>')">
-    </div>
+    <%= cl_image_tag @product.photo.key, class:"product-page-left" %>
 
-    <div class="product-page-right">
-      <h1><%= @product.name %></h1>
-      <div class="product-page-right-category">
-         <p><em><%= @product.category.capitalize %></em></p>
+
+    <div class="product-page-right d-flex flex-column justify-content-between">
+
+      <div class="product-infos">
+
+        <h1 class='text-center'><%= @product.name %></h1>
+
+        <div class="product-category-and-owner d-flex align-items-center justify-content-between">
+
+          <p class="mb-0"><strong>Category:</strong> <em><%= @product.category.capitalize %></em></p>
+
+          <div class="product-user d-flex justify-content-between align-items-center">
+            <p class='mb-0'><strong> Owner: </strong> <%= @product.user.first_name %></p>
+            <% if @product.user.photo.attached?  %>
+              <%= cl_image_tag(@product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+              class:"avatar avatar-bordered") %>
+            <% else %>
+              <%= image_tag('user.png', class:"avatar avatar-bordered") %>
+            <% end %>
+          </div>
+
+        </div>
+
+        <p><%= @product.description %></p>
+        <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
+
       </div>
-      <p><%= @product.description %></p>
-      <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
 
-      <div class="product-user d-flex">
-        <p><strong> Owner: </strong> <%= @product.user.first_name %></p>
 
-         <%= cl_image_tag(@product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
-                class:"avatar") %>
 
+      <div class="text-center">
+        <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
+          Rent this jewelry
+        <% end %>
       </div>
-
-
-
-      <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
-        Rent this jewelry
-      <% end %>
 
     </div>
 

@@ -1,5 +1,6 @@
 class Renter::RentalsController < ApplicationController
   def index
+    @renter = true
     @rentals = current_user.rentals
   end
 
