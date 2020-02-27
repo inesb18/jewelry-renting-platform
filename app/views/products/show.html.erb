@@ -15,10 +15,10 @@
 
           <p><strong>Category:</strong> <em><%= @product.category.capitalize %></em></p>
 
-          <div class="product-user d-flex justify-content-between">
-            <p><strong> Owner: </strong> <%= @product.user.first_name %></p>
+          <div class="product-user d-flex justify-content-between align-items-center">
+            <p class='mb-0'><strong> Owner: </strong> <%= @product.user.first_name %></p>
              <%= cl_image_tag(@product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
-                    class:"avatar") %>
+                    class:"avatar avatar-bordered") %>
           </div>
 
         </div>
