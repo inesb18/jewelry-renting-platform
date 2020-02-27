@@ -7,17 +7,29 @@
 
 <div class="container mt-5">
 
-  <div class="d-flex justify-content-between mb-5">
+  <% if current_user.products.empty?  %>
 
-    <%= link_to owner_rentals_path, class:'btn-heavy text-center' do %>
-      Rentals for my jewels
-    <% end %>
+    <div class="text-center mb-5">
+      <%= link_to new_product_path, class:"btn-heavy" do %>
+        Add a product
+      <% end %>
+    </div>
 
-    <%= link_to new_product_path, class:"btn-light" do %>
-      Add a product
-    <% end %>
+  <% else %>
 
-  </div>
+    <div class="d-flex justify-content-between mb-5">
+
+      <%= link_to owner_rentals_path, class:'btn-heavy text-center' do %>
+        Rentals for my jewels
+      <% end %>
+
+      <%= link_to new_product_path, class:"btn-light" do %>
+        Add a product
+      <% end %>
+
+    </div>
+
+  <% end %>
 
   <%= render 'shared/listproducts' %>
 
