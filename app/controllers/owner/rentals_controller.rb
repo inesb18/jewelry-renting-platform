@@ -8,7 +8,10 @@ class Owner::RentalsController < ApplicationController
     end
   end
 
-  def show
-    @rental = Rental.find(params[:id])
+  def confirm
+    @rental = Rental.find(params[:rental_id])
+    @rental.confirmed = true
+    @rental.save
+    redirect_to owner_rentals_path
   end
 end

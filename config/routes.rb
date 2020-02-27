@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :renter_reviews, only: [:create]
   end
   namespace :owner do
-    resources :rentals, only: [:index]
+    resources :rentals, only: [:index]  do
+      get 'confirm', to: 'rentals#confirm', as: 'confirm'
+    end
     resources :products, only: [:index]
   end
   namespace :renter do
