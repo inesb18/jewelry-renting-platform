@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def update
     user = current_user
     user.update(user_params)
+    authorize(@user)
     redirect_to users_edit_path
   end
 

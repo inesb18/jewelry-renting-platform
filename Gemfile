@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem 'pg_search', '~> 2.3.0'
 gem 'pundit'
 gem 'geocoder'
 gem 'active_storage_validations'
