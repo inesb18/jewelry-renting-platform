@@ -14,7 +14,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
     @product = Product.find(params[:id])
+    @rental.product = @product
     authorize(@product)
   end
 

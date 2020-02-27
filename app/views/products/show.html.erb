@@ -36,10 +36,19 @@
 
 
       <div class="text-center">
-        <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
-          Rent this jewelry
+        <% if policy(@rental).new? %>
+          <%= link_to new_product_rental_path(@product), class:'btn btn-primary' do %>
+            Rent this jewelry
+          <% end %>
+        <% end %>
+        <% if policy(@product).edit? %>
+          <%= link_to edit_product_path(@product), class:'btn btn-primary' do %>
+            Edit this listing
+          <% end %>
         <% end %>
       </div>
+
+
 
     </div>
 
