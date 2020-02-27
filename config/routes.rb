@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'users/update'
   devise_for :users
   root to: 'pages#home'
-  resources :products, only: [:index, :new, :create, :show, :delete] do
+  resources :products, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :product_reviews, only: [:create]
     resources :rentals, only: [:new,:create]
   end
