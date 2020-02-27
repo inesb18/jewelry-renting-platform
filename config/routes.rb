@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :rentals, only: [:index]  do
       get 'confirm', to: 'rentals#confirm', as: 'confirm'
+      get 'decline', to: 'rentals#decline', as: 'decline'
     end
     resources :products, only: [:index]
   end

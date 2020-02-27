@@ -14,4 +14,11 @@ class Owner::RentalsController < ApplicationController
     @rental.save
     redirect_to owner_rentals_path
   end
+
+  def decline
+    @rental = Rental.find(params[:rental_id])
+    @rental.declined = true
+    @rental.save
+    redirect_to owner_rentals_path
+  end
 end

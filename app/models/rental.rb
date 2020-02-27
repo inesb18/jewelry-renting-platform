@@ -43,9 +43,16 @@ class Rental < ApplicationRecord
   validate :end_after_start
   validate :different_dates
   validate :not_owner_booking
+  validate :not_confirmed_and_declined
 
   include ActiveModel::Validations
   validates_with Availability
+
+  def not_confirmed_and_declined
+    if confirmed && declined
+      errors.add(:base, "Rental can't be both confirmed and declined.")
+    end
+  end
 
   def not_owner_booking
     if product.user == user
