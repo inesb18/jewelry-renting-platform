@@ -17,21 +17,16 @@ file = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ix
 nathalie.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 nathalie.save!
 
-p nathalie
-
-lea = User.new(first_name: "Lea", last_name: "Robert", bio: "Lea. 22. Trying to be fashionable while living a more sustainable lifestyle.", address: "3798 Casgrain Ave, Montreal, QC", email: "lea@mail.com", password: "hello123")
+lea = User.new(first_name: "Lea", last_name: "Robert", bio: "Lea. 22. Trying to be fashionable while living a more sustainable lifestyle.", address: "475 Elgin St, Ottawa, ON K2P 2E6", email: "lea@mail.com", password: "hello123")
 file = URI.open("https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
-
-p lea
 
 laura = User.new(first_name: "Laura", last_name: "Dumont", address: "5333 av Casgrain, Montreal, QC", email: "laura@mail.com", password: "hello123" )
 file = URI.open("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
 laura.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 laura.save!
 
-p laura
 
 #necklaces
 pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Pearl Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)

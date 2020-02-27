@@ -6,9 +6,20 @@
 
 <div class="container mt-3">
 
-  <%= link_to products_near_me_path do %>
-    Near me
-  <% end %>
+  <div class="text-center">
+
+    <% if current_user && @near_me != "true" %>
+      <%= link_to "products?category=#{@category}&near_me=true" do %>
+        Show me sparkles near me
+      <% end %>
+    <% elsif @near_me == "true" %>
+      <%= link_to "products?category=#{@category}" do %>
+        Show me sparkles around the world
+      <% end %>
+    <% end %>
+
+  </div>
+
 
   <%= render 'shared/listproducts' %>
 
