@@ -5,16 +5,17 @@ class ProductsController < ApplicationController
     @category = params[:category]
     if %w(necklaces earrings bracelets rings sets other).include?(@category)
       @title = @category
-      @products = Product.all.select {|p| p.category == @category}
+      @products = policy_scope(Product).all.select {|p| p.category == @category}
     else
       @category = "all"
       @title = "all jewelry"
-      @products = Product.all
+      @products = policy_scope(Product).all
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    authorize(@product)
   end
 
   def new
