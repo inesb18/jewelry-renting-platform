@@ -6,6 +6,26 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def show?
-    return false
+    return true
+  end
+
+  def new?
+    return true
+  end
+
+  def create?
+    return true
+  end
+
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
   end
 end

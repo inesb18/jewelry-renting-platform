@@ -1,9 +1,5 @@
 class Renter::RentalsController < ApplicationController
   def index
-    @rentals = current_user.rentals
-  end
-
-  def show
-    @rental = Rental.find(params[:id])
+    @rentals = policy_scope(Rental).where(user: current_user)
   end
 end
