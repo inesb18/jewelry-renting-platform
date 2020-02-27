@@ -46,7 +46,9 @@
 
         </div>
 
-        <%= cl_image_tag(rental.product.photo.key, width: 260, class:"product-image")%>
+        <%= link_to product_path(rental.product) do %>
+          <%= cl_image_tag(rental.product.photo.key, width: 260, class:"product-image")%>
+        <% end %>
 
       </div>
 
