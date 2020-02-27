@@ -9,4 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, format: { with: /\A[a-z|A-Z|\s|-|,]+\z/ }
   validates :last_name, presence: true, format: { with: /\A[a-z|A-Z|\s|-|,]+\z/ }
   validates :address, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

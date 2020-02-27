@@ -2,21 +2,56 @@
     <p>No rental.</p>
   <% else %>
 
-      <% @rentals.each do |rental| %>
+    <% @rentals.each do |rental| %>
 
-        <div class="card-category-order">
-          <ul>
-          <p class='pdt'><strong>Product:</strong> <%= rental.product.name %></p>
-          <p> <strong>From:</strong> <%= rental.start_date.strftime('%b %d, %Y') %></p>
-          <p> <strong>To:</strong> <%= rental.end_date.strftime('%b %d, %Y') %></p>
-          <p> <strong>Owner:</strong> <%= rental.product.user.first_name %> <%= rental.product.user.last_name %></p>
-          <p> <strong>Renter:</strong> <%= rental.user.first_name %> <%= rental.user.last_name %></p>
-          </ul>
-          <div class="end">
-            <%= cl_image_tag(rental.product.photo.key, width: 160, height: 180) %>
+      <div class="card-rental d-flex justify-content-between">
+
+        <div class="rental-info p-3 d-flex flex-column justify-content-between">
+
+          <div>
+            <h3 class='pdt text-center'><strong>Product:</strong> <%= rental.product.name %></h3>
+
+            <div class="rental-dates my-3">
+              <p class="m-0"> <strong>From:</strong> <%= rental.start_date.strftime('%b %d, %Y') %></p>
+              <p class="m-0"> <strong>To:</strong> <%= rental.end_date.strftime('%b %d, %Y') %></p>
+            </div>
           </div>
+
+          <div class="rental-user d-flex align-items-center">
+
+            <% if @renter %>
+
+              <p class='mb-0 mr-2'><strong> Owner: </strong> <%= rental.product.user.first_name %> <%= rental.product.user.last_name %></p>
+
+              <% if rental.product.user.photo.attached?  %>
+                <%= cl_image_tag(rental.product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                class:"avatar avatar-bordered") %>
+              <% else %>
+                <%= image_tag('user.png', class:"avatar avatar-bordered") %>
+              <% end %>
+
+            <% else %>
+
+              <p class='mb-0 mr-2'><strong> Renter: </strong> <%= rental.user.first_name %> <%= rental.user.last_name %></p>
+
+              <% if rental.user.photo.attached?  %>
+                <%= cl_image_tag(rental.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                class:"avatar avatar-bordered") %>
+              <% else %>
+                <%= image_tag('user.png', class:"avatar avatar-bordered") %>
+              <% end %>
+
+            <% end %>
+          </div>
+
         </div>
 
-      <% end %>
+        <%= link_to product_path(rental.product) do %>
+          <%= cl_image_tag(rental.product.photo.key, width: 260, class:"product-image")%>
+        <% end %>
+
+      </div>
+
+    <% end %>
 
   <% end %>

@@ -1,0 +1,27 @@
+.product {
+  margin: 120px 0;
+}
+
+.product-page-left {
+  border: 2px solid $light-rose;
+  width: 450px;
+}
+
+.product-page-right {
+  margin-left: 100px;
+  padding: 10px;
+  flex-grow: 1;
+  h1 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.product-user p {
+  margin-right: 10px;
+}

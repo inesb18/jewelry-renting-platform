@@ -18,7 +18,7 @@
   }
 }
 
-.card-category-order {
+.card-rental {
   background-size: cover;
   background-position: center;
   // height: 210px;
@@ -28,7 +28,7 @@
   color: $dark-rose;
   font-size: 16px;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   margin: 15px 15px;
   border: 3px solid $light-rose;
   padding: 20px;
@@ -38,16 +38,8 @@
   .pdt{
     color: $dark-pink;
   }
-}
-
-.end {
-  display: flex;
-  justify-content: end;
-  margin-left: 300px;
-  border-radius: 5px;
-  img {
+  .product-image {
     border: 2px solid $light-rose;
-
   }
 }
 
@@ -56,29 +48,28 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h2 {
+    font-size: 22px;
+    margin: 0;
+    margin-right: 40px;
+  }
+  p {
+    color: $dark-blue;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0;
+  }
 }
 
 .card-product > img {
-  height: 500px;
+  height: 300px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
-  font-size: 22px;
-  margin: 0;
-  margin-right: 40px;
-}
-
-.card-product p {
-  color: $dark-blue;
-  font-weight: bold;
-  font-size: 22px;
-  margin: 0;
-}
 
 .card-product .card-product-infos {
-  border: 2px solid $dark-pink;
+  border: 1.5px solid $dark-pink;
   height: 130px;
   padding: 30px;
   display: flex;
@@ -100,4 +91,3 @@
     text-decoration: none;
   }
 }
-
