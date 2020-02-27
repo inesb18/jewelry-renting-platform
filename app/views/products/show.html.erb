@@ -12,9 +12,9 @@
 
         <h1 class='text-center'><%= @product.name %></h1>
 
-        <div class="product-category-and-owner d-flex justify-content-between">
+        <div class="product-category-and-owner d-flex align-items-center justify-content-between">
 
-          <p><strong>Category:</strong> <em><%= @product.category.capitalize %></em></p>
+          <p class="mb-0"><strong>Category:</strong> <em><%= @product.category.capitalize %></em></p>
 
           <div class="product-user d-flex justify-content-between align-items-center">
             <p class='mb-0'><strong> Owner: </strong> <%= @product.user.first_name %></p>
