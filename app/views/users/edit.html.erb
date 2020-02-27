@@ -1,0 +1,42 @@
+<div class="container mt-5">
+
+<h1 class="text-center mb-5">Your profile</h1>
+
+<%= simple_form_for @user do |f| %>
+  <% if @user.photo.attached? %>
+    <div class="center">
+    <%= cl_image_tag(@user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                class:"avatar-large") %>
+                <br>
+                <br>
+    <label class="btn-light clickable">
+      Change your picture
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+    <% else %>
+      <label class="btn-light clickable">
+        Upload your picture
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+    <% end %>
+    </div>
+  <br>
+
+  <%= f.input :first_name, label: "First name" %>
+  <%= f.input :last_name, label: "Last name" %>
+  <%= f.input :address, input_html: { id:"user-address" } %>
+  <%= f.input :bio, label: "Biography" %>
+  <%= f.input :email, label: "E-mail" %>
+  <br>
+  <div class="text-center">
+    <%= f.button :submit, class:"btn-heavy" %>
+  </div>
+
+
+  <% end %>
+
+</div>
