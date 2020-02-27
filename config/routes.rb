@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     resources :renter_reviews, only: [:create]
   end
   namespace :owner do
-    resources :rentals, only: [:index, :show]
+    resources :rentals, only: [:index]
     resources :products, only: [:index]
   end
   namespace :renter do
-    resources :rentals, only: [:index, :show]
+    resources :rentals, only: [:index]
   end
 end

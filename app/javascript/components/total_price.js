@@ -17,7 +17,7 @@ const displayPrice = () => {
   const nbDaysRent = nbDays();
   const totalPrice = nbDaysRent * dailyPrice / 100.0;
   if (totalPrice > 0) {
-    priceElement.innerText = totalPrice.toString(10)+" CAD";
+    priceElement.innerText = totalPrice.toString(10);
   } else {
     priceElement.innerText = '...';
   }
