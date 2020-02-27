@@ -10,7 +10,7 @@ require 'open-uri'
 User.destroy_all
 Product.destroy_all
 
-#user
+#users
 nathalie = User.new(first_name: "Nathalie", last_name: "Thompson", bio: "A girl living in snowy Montreal who's trying to be fancy on a budget!", address: "125 Saint Urbain, Montreal, QC", email: "nathalie@mail.com", password: "hello123" )
 file = URI.open("https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80")
 nathalie.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -20,6 +20,11 @@ lea = User.new(first_name: "Lea", last_name: "Robert", bio: "Lea. 22. Trying to 
 file = URI.open("https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
 lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
+
+laura = User.new(first_name: "Laura", last_name: "Dumont", address: "5333 av Casgrain, Montreal, QC", email: "laura@mail.com", password: "hello123" )
+file = URI.open("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
+laura.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+laura.save!
 
 #necklaces
 pearl_necklace = Product.new(category: "necklaces", name: "Women's South Sea Cultured Pearl Strand", price: 37.00, description: "Beautifully lustrous and elegant. I've gotten compliments on this necklace every time I've worn it to an event!", user: nathalie)
@@ -82,12 +87,6 @@ dates1.save!
 
 dates2 = Unavailability.new(start_date: Date.parse("August 15 2020") , end_date: Date.parse("August 16 2020"), product: rhinestone_necklace)
 dates2.save!
-
-#ines
-ines = User.new(first_name: "Ines", last_name: "Belghiti", address: "125 av Mozart Est, Montreal, QC", email: "ines@mail.com", password: "hello123" )
-file = URI.open("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
-ines.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-ines.save!
 
 
 puts "done seeding!"
