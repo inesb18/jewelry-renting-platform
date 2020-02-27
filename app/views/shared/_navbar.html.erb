@@ -60,7 +60,10 @@
         <%= link_to owner_products_path, id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
                 My jewels for rent
         <% end %>
-        <a class="dropdown-link dropdown-item" href="#">My account</a>
+        <%= link_to edit_user_path(current_user), id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
+                My account
+        <% end %>
+          <div class="dropdown-divider"></div>
         <%= link_to destroy_user_session_path, method: :delete, id:"sign-out-dropdown-link", class:"dropdown-link dropdown-item" do %>
                 Sign out
         <% end %>

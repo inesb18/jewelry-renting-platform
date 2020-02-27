@@ -5,24 +5,27 @@ class ProductsController < ApplicationController
     @category = params[:category]
     if %w(necklaces earrings bracelets rings sets other).include?(@category)
       @title = @category
-      @products = Product.all.select {|p| p.category == @category}
+      @products = policy_scope(Product).select {|p| p.category == @category}
     else
       @category = "all"
       @title = "all jewelry"
-      @products = Product.all
+      @products = policy_scope(Product)
     end
   end
 
   def show
     @product = Product.find(params[:id])
+    authorize(@product)
   end
 
   def new
     @product = Product.new
+    authorize(@product)
   end
 
   def create
     @product = Product.new(product_params)
+    authorize(@product)
     @product.user = current_user
     if @product.save
       redirect_to product_path(@product)
@@ -37,6 +40,28 @@ class ProductsController < ApplicationController
     render :index
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    authorize(@product)
+  end
+
+  def update
+    product = Product.find(params[:id])
+    authorize(product)
+    product.update(product_params)
+    redirect_to product_path(product)
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    authorize(product)
+    product.destroy
+    # redirect_to owner_products_path
+    redirect_to products_path
+  end
+
+
+>>>>>>> master
   private
 
   def product_params

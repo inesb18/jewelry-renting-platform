@@ -1,5 +1,5 @@
 class Owner::ProductsController < ApplicationController
   def index
-    @products = current_user.products
+    @products = policy_scope(Product).where(user: current_user)
   end
 end
