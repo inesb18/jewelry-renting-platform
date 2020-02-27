@@ -15,6 +15,16 @@
               <p class="m-0"> <strong>From:</strong> <%= rental.start_date.strftime('%b %d, %Y') %></p>
               <p class="m-0"> <strong>To:</strong> <%= rental.end_date.strftime('%b %d, %Y') %></p>
             </div>
+
+            <% if rental.confirmed? && !rental.declined? %>
+              <p><strong>Rental Status: </strong>Confirmed</p>
+            <% elsif !rental.confirmed? && !rental.declined? %>
+              <p><strong>Rental Status: </strong>Pending</p>
+              <% else %>
+              <p><strong>Rental Status: </strong>Declined</p>
+            <% end %>
+
+
           </div>
 
           <div class="rental-user d-flex align-items-center">
@@ -41,6 +51,20 @@
                 <%= image_tag('user.png', class:"avatar avatar-bordered") %>
               <% end %>
 
+
+              <% if !rental.declined && !rental.confirmed %>
+                <div class="text-center ml-2 mr-2">
+                  <%= link_to owner_rental_confirm_path(rental), class:'btn btn-primary' do %>
+                    Confirm rental
+                  <% end %>
+                </div>
+
+                <div class="text-center">
+                  <%= link_to owner_rental_decline_path(rental), class:'btn btn-primary' do %>
+                    Decline rental
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
 
