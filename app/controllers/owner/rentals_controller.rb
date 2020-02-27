@@ -1,11 +1,6 @@
 class Owner::RentalsController < ApplicationController
   def index
-    @rentals = []
-    current_user.products.each do |prod|
-      prod.rentals.each do |rental|
-        @rentals << rental
-      end
-    end
+    @rentals = policy_scope(Rental).select { |rental| rental.product.user == current_user }
   end
 
   def confirm
