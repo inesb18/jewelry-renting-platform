@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :product_reviews, only: [:create]
     resources :rentals, only: [:new,:create]
   end
-  resources :users, only: [:edit, :update] do
+  resources :users, only: [:edit, :update, :show] do
     resources :renter_reviews, only: [:create]
   end
   namespace :owner do
