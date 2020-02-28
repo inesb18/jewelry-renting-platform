@@ -9,11 +9,11 @@ class ProductsController < ApplicationController
     lon = params[:lon]
     @products = policy_scope(Product)
     if @near_me == "true" && current_user
-      users_near = User.near(current_user.address, 20)
-      @products = policy_scope(Product).select{ |p| users_near.include?(p.user) }
+      users_near = User.near(current_user.address, 20).to_a
+      @products = policy_scope(Product).where(user_id: users_near.pluck(:id))
     elsif @near_me == "true" && lat && lon
-      users_near = User.near([lat.to_f,lon.to_f], 20)
-      @products = policy_scope(Product).select{ |p| users_near.include?(p.user) }
+      users_near = User.near([lat.to_f,lon.to_f], 20).to_a
+      @products = policy_scope(Product).where(user_id: users_near.pluck(:id))
     end
     if %w(necklaces earrings bracelets rings sets other).include?(@category)
       @title = @category
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
       @title = "all jewelry"
     end
     if @search
-      @products = Product.search_by_product_name_and_description_and_category(@search)
+      @products = @products.search_by_product_name_and_description_and_category(@search)
     end
   end
 
