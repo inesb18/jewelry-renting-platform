@@ -8,6 +8,7 @@
 
     <div class="product-page-right d-flex flex-column justify-content-between">
 
+
       <div class="product-infos">
 
         <h1 class='text-center product-name'><%= @product.name %></h1>
@@ -42,7 +43,7 @@
 
 
       <div class="text-center">
-        
+
         <% if policy(@rental).new? %>
           <%= link_to new_product_rental_path(@product), class:'btn btn-primary rent-button' do %>
             Rent this jewelry

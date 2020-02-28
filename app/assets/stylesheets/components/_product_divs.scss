@@ -2,6 +2,14 @@
   margin: 120px 0;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .product-page-left {
   border: 2px solid $light-rose;
   width: 450px;
