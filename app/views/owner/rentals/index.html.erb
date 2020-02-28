@@ -6,6 +6,16 @@
 
 <div class="container mt-5">
 
+
+  <div class="center mb-5">
+
+    <%= link_to owner_products_path, class:"btn-heavy center" do %>
+      My jewels for rent
+    <% end %>
+
+  </div>
+
+
   <ul class="list-inline tabs-underlined mb-5">
     <li>
       <a href="?status=pending" class="tab-underlined <%= 'active' if @status == "pending" %>">Pending</a>

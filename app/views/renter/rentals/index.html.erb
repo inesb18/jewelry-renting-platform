@@ -6,6 +6,21 @@
 
 <div class="container mt-5">
 
+    <ul class="list-inline tabs-underlined mb-5">
+    <li>
+      <a href="?status=pending" class="tab-underlined <%= 'active' if @status == "pending" %>">Pending</a>
+    </li>
+    <li>
+      <a href="?status=confirmed" class="tab-underlined <%= 'active' if @status == "confirmed" %>">Confirmed</a>
+    </li>
+    <li>
+      <a href="?status=past" class="tab-underlined <%= 'active' if @status == "past" %>">Past</a>
+    </li>
+    <li>
+      <a href="?status=declined" class="tab-underlined <%= 'active' if @status == "declined" %>">Declined</a>
+    </li>
+  </ul>
+
   <%= render 'shared/listrentals' %>
 
 </div>
