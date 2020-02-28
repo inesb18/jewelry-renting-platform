@@ -5,4 +5,13 @@ class ProductReviewPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    record.product.rentals.each do |rental|
+      if rental.user == user
+        return true
+      end
+    end
+    return false
+  end
+
 end
