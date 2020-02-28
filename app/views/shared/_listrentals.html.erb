@@ -16,13 +16,17 @@
               <p class="m-0"> <strong>To:</strong> <%= rental.end_date.strftime('%b %d, %Y') %></p>
             </div>
 
-            <% if rental.confirmed? && !rental.declined? %>
-              <p><strong>Rental Status: </strong>Confirmed</p>
-            <% elsif !rental.confirmed? && !rental.declined? %>
-              <p><strong>Rental Status: </strong>Pending</p>
-              <% else %>
-              <p><strong>Rental Status: </strong>Declined</p>
-            <% end %>
+            <div>
+
+              <% if rental.confirmed? && !rental.declined? %>
+                <p class="rental-status-confirmed"><strong>Rental Status: </strong>Confirmed</p>
+              <% elsif !rental.confirmed? && !rental.declined? %>
+                <p class="rental-status-pending"><strong>Rental Status: </strong>Pending</p>
+                <% else %>
+                <p class="rental-status-declined"><strong>Rental Status: </strong>Declined</p>
+              <% end %>
+
+            </div>
 
 
           </div>
