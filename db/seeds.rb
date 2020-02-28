@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
+ProductReview.destroy_all
 Rental.destroy_all
 User.destroy_all
 Product.destroy_all
