@@ -45,30 +45,48 @@
 
       <div class="text-center">
 
-        <% if policy(@rental).new? %>
-          <%= link_to new_product_rental_path(@product), class:'btn btn-primary rent-button' do %>
-            Rent this jewelry
-          <% end %>
-        <% end %>
-        <% if policy(@product).edit? %>
-          <%= link_to edit_product_path(@product), class:'btn-heavy mr-3' do %>
-            Edit
-          <% end %>
-        <% end %>
-        <% if policy(@product).destroy? %>
-          <%= link_to @product.id.to_s, method: :delete, class:'btn-light ml-3' do %>
-            Delete
-          <% end %>
-        <% end %>
+                <% if policy(@rental).new? %>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Rent this jewelry</button>
+                <% end %>
+                <% if policy(@product).edit? %>
+                  <%= link_to edit_product_path(@product), class:'btn-heavy mr-3' do %>
+                    Edit
+                  <% end %>
+                <% end %>
+                <% if policy(@product).destroy? %>
+                  <%= link_to @product.id.to_s, method: :delete, class:'btn-light ml-3' do %>
+                    Delete
+                  <% end %>
+                <% end %>
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="container mt-5 mb-5">
+
+              <h1 class="text-center mb-5">Booking for <%= @product.name %></h1>
+              <%= simple_form_for [@product, @rental] do |f| %>
+                <%= f.error :base %>
+                <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true %>
+                <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true %>
+                <div id="price" data-amount-cents="<%= @product.price * 100%>"></div>
+                <p id="total-price-for-rental">
+                  <strong>Total price for the rental:</strong> <span id="total_price"></span> CAD
+                </p>
+                 <div class="text-center">
+
+                  <%= f.button :submit, "Request rental", class:"btn-heavy" %>
+
+                </div>
+
+              <% end %>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
     </div>
-
-
   </div>
 </div>
-
-
-
