@@ -23,10 +23,15 @@ file = URI.open("https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ix
 lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
 
-laura = User.new(first_name: "Laura", last_name: "Dumont", address: "5333 av Casgrain, Montreal, QC", email: "laura@mail.com", password: "hello123" )
+christina = User.new(first_name: "Christina", last_name: "Peters", address: "158 avenue Mozart Est Montreal", email: "christina@mail.com", password: "hello123")
+file = URI.open("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
+christina.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+christina.save!
+
+ines = User.new(first_name: "Ines", last_name: "Dumont", address: "5333 av Casgrain, Montreal, QC", email: "ines@mail.com", password: "hello123", bio:"Fast talking Parisian studying in Montreal! Ready to take over the world" )
 file = URI.open("https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
-laura.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-laura.save!
+ines.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+ines.save!
 
 
 #necklaces
@@ -41,7 +46,7 @@ rhinestone_necklace.photo.attach(io: file, filename: 'nes.png', content_type: 'i
 rhinestone_necklace.save!
 
 #earrings
-diamond_earrings = Product.new(category: "earrings", name: "Round Diamond Earrings", price: 68.00, description: "Stunning diamond earrings that will match any outfit! You can dress these earrings up or down.", user: nathalie)
+diamond_earrings = Product.new(category: "earrings", name: "Round Diamond Earrings", price: 68.00, description: "Stunning diamond earrings that will match any outfit! You can dress these earrings up or down.", user: christina)
 file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-diamond-platinum-stud-earrings-/49994_main?$phab_detailmain$")
 diamond_earrings.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 diamond_earrings.save!
@@ -68,12 +73,17 @@ file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-cushion-
 amethyst_ring.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 amethyst_ring.save!
 
-topaz_ring = Product.new(category: "rings", name: "Blue Topaz and Diamond Cocktail Ring", price: 74.00, description: "Vibrant Topaz makes a statement in this fashion-forward ring!", user: lea)
+topaz_ring = Product.new(category: "rings", name: "Blue Topaz and Diamond Cocktail Ring", price: 74.00, description: "Vibrant Topaz makes a statement in this fashion-forward ring!", user: christina)
 file = URI.open("https://bnsec.bluenile.com/bluenile/is/image/bluenile/-emerald-sky-blue-topaz-an-diamond-cocktail-ring-in-14k-white-gold-/75817_main?$phab_detailmain$")
 topaz_ring.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 topaz_ring.save!
 
 #sets
+pearl_set = Product.new(category: "sets", name: "Pearl complete Set", price: 65.00, description: "My boyfriend never buys me pearls. So I bought them for myself and they are even better than those he would offer me!", user: lea)
+file  = URI.open("https://images-na.ssl-images-amazon.com/images/I/71mjkZTd8rL._AC_UL1500_.jpg")
+pearl_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+pearl_set.save!
+
 crystal_bridal_set = Product.new(category: "sets", name: "Crystal and Pearl Necklace and Earrings Set", price: 53.00, description: "Make a statement with this bridal jewelry set of necklace and earrings with sparkly crystals!", user: nathalie)
 file  = URI.open("https://i.etsystatic.com/5486852/r/il/fdb0a5/1148745606/il_570xN.1148745606_g9yr.jpg")
 crystal_bridal_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -85,13 +95,16 @@ diamond_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png
 diamond_set.save!
 
 #unavailablities
-dates1 = Unavailability.new(start_date: Date.parse("June 9 2020"), end_date: Date.parse("June 11 2020"), product: diamond_set )
+dates1 = Unavailability.new(start_date: Date.parse("March 19  2020"), end_date: Date.parse("March 21 2020"), product: pearl_necklace )
 dates1.save!
 
 dates2 = Unavailability.new(start_date: Date.parse("August 15 2020") , end_date: Date.parse("August 16 2020"), product: rhinestone_necklace)
 dates2.save!
 
-
+#rentals
+Rental.create(user: nathalie, product: diamond_earrings, start_date: Date.parse("March 5 2020"), end_date: Date.parse("March 18 2020"), confirmed: true, declined: false)
+r = Rental.new(user: nathalie, product: topaz_ring, start_date: Date.parse("February 22 2020"), end_date: Date.parse("February 25 2020"), confirmed: true, declined: false)
+r.save!
 puts "done seeding!"
 
 

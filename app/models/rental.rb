@@ -39,7 +39,7 @@ class Rental < ApplicationRecord
   validates :product, presence: true
   validates :user, presence: true
 
-  validate :future_dates
+  # validate :future_dates
   validate :end_after_start
   validate :different_dates
   validate :not_owner_booking
