@@ -58,10 +58,13 @@
                 My rentals
         <% end %>
         <%= link_to owner_products_path, id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
-                My jewels for rent
+                My jewels
         <% end %>
         <%= link_to edit_user_path(current_user), id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
                 My account
+        <% end %>
+        <%= link_to owner_rentals_path, id:"dropdown-link", class:"dropdown-link dropdown-item" do %>
+                Owner portal
         <% end %>
           <div class="dropdown-divider"></div>
         <%= link_to destroy_user_session_path, method: :delete, id:"sign-out-dropdown-link", class:"dropdown-link dropdown-item" do %>
