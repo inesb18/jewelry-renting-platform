@@ -5,26 +5,32 @@
   <%= f.input :price, label: "Daily rate" %>
   <br>
 
-  <% if @product.photo.attached?  %>
-    <%= cl_image_tag(@product.photo.key) %>
-    <label class="btn-light clickable">
-      Change the photo
-      <span style="display:none;">
-        <%= f.input :photo, as: :file %>
-      </span>
-    </label>
-  <% else %>
-    <label class="btn-light clickable">
-      Upload a photo
-      <span style="display:none;">
-        <%= f.input :photo, as: :file %>
-      </span>
-    </label>
-  <% end %>
+  <div class="center">
+
+    <% if @product.photo.attached?  %>
+      <%= cl_image_tag(@product.photo.key, class:"product-photo-in-form") %>
+      <label class="btn-light clickable ml-5">
+        Change the photo
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+    <% else %>
+      <label class="btn-light clickable">
+        Upload a photo
+        <span style="display:none;">
+          <%= f.input :photo, as: :file %>
+        </span>
+      </label>
+    <% end %>
+
+
+  </div>
+
 
   <br>
   <div class="text-center">
-    <%= f.button :submit, class:"btn-heavy" %>
+    <%= f.button :submit, class:"btn-heavy mt-5" %>
   </div>
 
 <% end %>

@@ -11,13 +11,31 @@
 
               <div class="card-product">
 
-                <%= cl_image_tag(product.photo.key) %>
+                <%= cl_image_tag(product.photo.key, class:"card-product-image") %>
 
                 <div class="card-product-infos">
 
                   <h2><%= product.name %></h2>
 
-                  <p class="card-product-pricing">$<%= product.price.to_i %>/day</p>
+                  <div class="card-product-pricing-and-actions">
+
+                    <p class="card-product-pricing">$<%= product.price.to_i %>/day</p>
+
+                    <div class="card-product-actions">
+                      <% if policy(product).edit? %>
+                        <%= link_to edit_product_path(product) do %>
+                          <i class="fas fa-edit"></i>
+                        <% end %>
+                      <% end %>
+                       <% if policy(product).destroy? %>
+                        <%= link_to product.id.to_s, method: :delete do %>
+                          <i class="fas fa-trash"></i>
+                        <% end %>
+                      <% end %>
+                    </div>
+
+                  </div>
+
 
                   <% if product.user.photo.attached?  %>
                     <%= cl_image_tag(product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,

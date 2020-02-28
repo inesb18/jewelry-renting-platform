@@ -61,7 +61,7 @@
   }
 }
 
-.card-product > img {
+.card-product .card-product-image {
   height: 300px;
   width: 100%;
   object-fit: cover;
@@ -82,7 +82,7 @@
 
 .card-product .card-product-infos {
   border: 1.5px solid $dark-pink;
-  height: 130px;
+  height: 160px;
   padding: 30px;
   display: flex;
   justify-content: space-between;

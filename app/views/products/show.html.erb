@@ -30,10 +30,11 @@
 
         <p><%= @product.description %></p>
         <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
-        <% if current_user %>
+        <% if current_user && current_user != @product.user %>
           <p class="product-distance mt-3">
             <i class="fas fa-map-marker-alt"></i>
-            <%= Geocoder::Calculations.distance_between(current_user.address, @product.user.address).round(2) %> kms from you!
+            <% distance = Geocoder::Calculations.distance_between(current_user.address, @product.user.address).round(2) %>
+            <%= distance %> km <%= 's' if distance >= 2 %> from you!
           </p>
         <% end %>
 
@@ -42,15 +43,20 @@
 
 
       <div class="text-center">
-        
+
         <% if policy(@rental).new? %>
           <%= link_to new_product_rental_path(@product), class:'btn btn-primary rent-button' do %>
             Rent this jewelry
           <% end %>
         <% end %>
         <% if policy(@product).edit? %>
-          <%= link_to edit_product_path(@product), class:'btn btn-primary' do %>
-            Edit this listing
+          <%= link_to edit_product_path(@product), class:'btn-heavy mr-3' do %>
+            Edit
+          <% end %>
+        <% end %>
+        <% if policy(@product).destroy? %>
+          <%= link_to @product.id.to_s, method: :delete, class:'btn-light ml-3' do %>
+            Delete
           <% end %>
         <% end %>
       </div>
