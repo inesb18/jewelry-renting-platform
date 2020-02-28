@@ -12,4 +12,12 @@ class RentalPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def confirm?
+    record.product.user == user
+  end
+
+  def decline?
+    record.product.user == user
+  end
 end
