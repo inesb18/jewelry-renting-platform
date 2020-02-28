@@ -28,7 +28,7 @@
                         <% end %>
                       <% end %>
                        <% if policy(product).destroy? %>
-                        <%= link_to product.id.to_s, method: :delete do %>
+                        <%= link_to product_path(product), method: :delete do %>
                           <i class="fas fa-trash"></i>
                         <% end %>
                       <% end %>
