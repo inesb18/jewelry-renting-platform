@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :unavailabilities, dependent: :destroy
   has_many :rentals
+  has_many :product_reviews, dependent: :destroy
   validates :user, presence: true
   validates :name, presence: true
   validates :price, presence: true

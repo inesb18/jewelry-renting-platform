@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_205102) do
+ActiveRecord::Schema.define(version: 2020_02_28_182254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_205102) do
     t.bigint "rental_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_product_reviews_on_product_id"
     t.index ["rental_id"], name: "index_product_reviews_on_rental_id"
   end
 
@@ -69,13 +71,13 @@ ActiveRecord::Schema.define(version: 2020_02_27_205102) do
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
-  create_table "rentee_reviews", force: :cascade do |t|
+  create_table "renter_reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
     t.bigint "rental_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rental_id"], name: "index_rentee_reviews_on_rental_id"
+    t.index ["rental_id"], name: "index_renter_reviews_on_rental_id"
   end
 
   create_table "unavailabilities", force: :cascade do |t|
@@ -106,10 +108,11 @@ ActiveRecord::Schema.define(version: 2020_02_27_205102) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_reviews", "products"
   add_foreign_key "product_reviews", "rentals"
   add_foreign_key "products", "users"
   add_foreign_key "rentals", "products"
   add_foreign_key "rentals", "users"
-  add_foreign_key "rentee_reviews", "rentals"
+  add_foreign_key "renter_reviews", "rentals"
   add_foreign_key "unavailabilities", "products"
 end

@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     @rental = Rental.new
     @product = Product.find(params[:id])
     @rental.product = @product
+    @product_review = ProductReview.new(product: @product)
     authorize(@product)
   end
 
