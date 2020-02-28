@@ -23,7 +23,7 @@ file = URI.open("https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ix
 lea.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 lea.save!
 
-christina = User.new(first_name: "Christina", last_name: "Peters" address: "158 avenue Mozart Est Montreal", email: "christina@mail.com", password: "hello123")
+christina = User.new(first_name: "Christina", last_name: "Peters", address: "158 avenue Mozart Est Montreal", email: "christina@mail.com", password: "hello123")
 file = URI.open("https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80")
 christina.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 christina.save!
@@ -80,7 +80,7 @@ topaz_ring.save!
 
 #sets
 pearl_set = Product.new(category: "sets", name: "Pearl complete Set", price: 65.00, description: "My boyfriend never buys me pearls. So I bought them for myself and they are even better than those he would offer me!", user: lea)
-file  = URI.open("https://i.etsystatic.com/5486852/r/il/fdb0a5/1148745606/il_570xN.1148745606_g9yr.jpg")
+file  = URI.open("https://images-na.ssl-images-amazon.com/images/I/71mjkZTd8rL._AC_UL1500_.jpg")
 pearl_set.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 pearl_set.save!
 
