@@ -7,7 +7,7 @@ class ProductReviewPolicy < ApplicationPolicy
 
   def create?
     record.product.rentals.each do |rental|
-      if rental.user == user
+      if rental.user == user && rental.start_date <= Date.today
         return true
       end
     end
