@@ -5,6 +5,7 @@ class Owner::RentalsController < ApplicationController
 
   def confirm
     @rental = Rental.find(params[:rental_id])
+    authorize(@rental)
     @rental.confirmed = true
     @rental.save
     redirect_to owner_rentals_path
@@ -12,6 +13,7 @@ class Owner::RentalsController < ApplicationController
 
   def decline
     @rental = Rental.find(params[:rental_id])
+    authorize(@rental)
     @rental.declined = true
     @rental.save
     redirect_to owner_rentals_path
