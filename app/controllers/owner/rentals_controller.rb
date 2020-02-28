@@ -12,7 +12,7 @@ class Owner::RentalsController < ApplicationController
       @rentals = @rentals.select { |rental| rental.confirmed && !rental.declined }
       @rentals = @rentals.select { |rental| rental.end_date < Date.today }
     else
-      @status == "pending"
+      @status = "pending"
       @rentals = @rentals.select { |rental| !rental.declined && !rental.confirmed }
     end
   end
