@@ -4,9 +4,14 @@ class ProductsController < ApplicationController
   def index
     @category = params[:category]
     @near_me = params[:near_me]
+    lat = params[:lat]
+    lon = params[:lon]
     @products = policy_scope(Product)
     if @near_me == "true" && current_user
       users_near = User.near(current_user.address, 20)
+      @products = policy_scope(Product).select{ |p| users_near.include?(p.user) }
+    elsif @near_me == "true" && lat && lon
+      users_near = User.near([lat.to_f,lon.to_f], 20)
       @products = policy_scope(Product).select{ |p| users_near.include?(p.user) }
     end
     if %w(necklaces earrings bracelets rings sets other).include?(@category)
