@@ -103,8 +103,8 @@ dates2.save!
 
 #rentals
 Rental.create(user: nathalie, product: diamond_earrings, start_date: Date.parse("March 5 2020"), end_date: Date.parse("March 18 2020"), confirmed: true, declined: false)
-Rental.create(user: nathalie, product: topaz_ring, start_date: Date.parse("February 22 2020"), end_date: Date.parse("February 23 2020"), confirmed: true, declined: false)
-
+r = Rental.new(user: nathalie, product: topaz_ring, start_date: Date.parse("February 22 2020"), end_date: Date.parse("February 25 2020"), confirmed: true, declined: false)
+r.save!
 puts "done seeding!"
 
 

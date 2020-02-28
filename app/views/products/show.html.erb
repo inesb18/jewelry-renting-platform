@@ -128,12 +128,12 @@
 
     <% end %>
 
-    <% if policy(@product).create? %>
+    <% if policy(@product_review).create? %>
 
 
       <div class="add-review mt-5">
 
-        <h4>Add your review</h4>
+        <h4>Hey <%= current_user.first_name %>, you've rented this before. Leave a review? </h4>
 
         <div class="creation-review-form review-card">
           <%= simple_form_for [@product,@product_review] do |f| %>
