@@ -42,15 +42,20 @@
 
 
       <div class="text-center">
-        
+
         <% if policy(@rental).new? %>
           <%= link_to new_product_rental_path(@product), class:'btn btn-primary rent-button' do %>
             Rent this jewelry
           <% end %>
         <% end %>
         <% if policy(@product).edit? %>
-          <%= link_to edit_product_path(@product), class:'btn btn-primary' do %>
-            Edit this listing
+          <%= link_to edit_product_path(@product), class:'btn-heavy mr-3' do %>
+            Edit
+          <% end %>
+        <% end %>
+        <% if policy(@product).destroy? %>
+          <%= link_to @product.id.to_s, method: :delete, class:'btn-light ml-3' do %>
+            Delete
           <% end %>
         <% end %>
       </div>
