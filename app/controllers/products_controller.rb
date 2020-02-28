@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @search = params[:search]
     @category = params[:category]
     @near_me = params[:near_me]
     @products = policy_scope(Product)
@@ -15,6 +16,9 @@ class ProductsController < ApplicationController
     else
       @category = "all"
       @title = "all jewelry"
+    end
+    if @search
+      @products = Product.search_by_product_name_and_description_and_category(@search)
     end
   end
 

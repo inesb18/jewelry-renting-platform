@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   include PgSearch::Model
-   pg_search_scope :search_by_product_name_and_description,
-    against: [ :name, :description ],
+   pg_search_scope :search_by_product_name_and_description_and_category,
+    against: [ :name, :description, :category ],
     using: {
       tsearch: { prefix: true }
     }
