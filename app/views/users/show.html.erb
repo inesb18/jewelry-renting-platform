@@ -1,0 +1,24 @@
+<h1 class="center mt-5"><%=@user.first_name%> <%=@user.last_name%>'s Profile</h1>
+
+<div class="container p-5 background mt-5">
+
+  <% if @user.photo.attached? %>
+    <div class="center">
+      <%= cl_image_tag(@user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                  class:"avatar-large") %>
+      <% else %>
+        <%= image_tag('user.png', class:"avatar-large") %>
+      <% end %>
+    </div>
+
+<div class="center ml-5">
+  <% if current_user && current_user != @user %>
+    <p class="product-distance mt-3">
+      <i class="fas fa-map-marker-alt"></i>
+      <% distance = Geocoder::Calculations.distance_between(current_user.address, @user.address).round(2) %>
+      <%= distance %> km <%= 's' if distance >= 2 %> from you!
+    </p>
+  <% end %>
+  <%= @user.bio %>
+</div>
+</div>

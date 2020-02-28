@@ -37,22 +37,26 @@
 
               <p class='mb-0 mr-2'><strong> Owner: </strong> <%= rental.product.user.first_name %> <%= rental.product.user.last_name %></p>
 
-              <% if rental.product.user.photo.attached?  %>
+            <%= link_to user_path(rental.product.user) do  %>
+              <% if rental.product.user.photo.attached? %>
                 <%= cl_image_tag(rental.product.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
                 class:"avatar avatar-bordered") %>
               <% else %>
                 <%= image_tag('user.png', class:"avatar avatar-bordered") %>
               <% end %>
+            <% end %>
 
             <% else %>
 
               <p class='mb-0 mr-2'><strong> Renter: </strong> <%= rental.user.first_name %> <%= rental.user.last_name %></p>
 
-              <% if rental.user.photo.attached?  %>
-                <%= cl_image_tag(rental.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
-                class:"avatar avatar-bordered") %>
-              <% else %>
-                <%= image_tag('user.png', class:"avatar avatar-bordered") %>
+              <%= link_to user_path(rental.user) do  %>
+                <% if rental.user.photo.attached?  %>
+                  <%= cl_image_tag(rental.user.photo.key,width: 200, height: 200, crop: :thumb, gravity: :face,
+                  class:"avatar avatar-bordered") %>
+                <% else %>
+                  <%= image_tag('user.png', class:"avatar avatar-bordered") %>
+                <% end %>
               <% end %>
 
 
