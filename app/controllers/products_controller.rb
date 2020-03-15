@@ -8,10 +8,7 @@ class ProductsController < ApplicationController
     lat = params[:lat]
     lon = params[:lon]
     @products = policy_scope(Product)
-    if @near_me == "true" && current_user
-      users_near = User.near(current_user.address, 20).to_a
-      @products = policy_scope(Product).where(user_id: users_near.pluck(:id))
-    elsif @near_me == "true" && lat && lon
+    if @near_me == "true" && lat && lon
       users_near = User.near([lat.to_f,lon.to_f], 20).to_a
       @products = policy_scope(Product).where(user_id: users_near.pluck(:id))
     end

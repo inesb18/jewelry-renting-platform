@@ -35,7 +35,7 @@
           <p class="product-distance mt-3">
             <i class="fas fa-map-marker-alt"></i>
             <% distance = Geocoder::Calculations.distance_between(current_user.address, @product.user.address).round(2) %>
-            <%= distance %> km <%= 's' if distance >= 2 %> from you!
+            <%= distance %> km<%= 's' if distance >= 2 %> from you!
           </p>
         <% end %>
 
