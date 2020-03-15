@@ -31,11 +31,17 @@
 
         <p><%= @product.description %></p>
         <p><strong> Rental price per day:</strong>  $<%= @product.price.to_i %></p>
-        <% if current_user && current_user != @product.user %>
+        <% if @lat && @lon && current_user != @product.user %>
+          <p class="product-distance mt-3">
+            <i class="fas fa-map-marker-alt"></i>
+            <% distance = Geocoder::Calculations.distance_between([@lat.to_f,@lon.to_f], @product.user.address).round(2) %>
+            <%= distance %> km<%= 's' if distance >= 2 %> from you!
+          </p>
+        <% elsif current_user && current_user != @product.user %>
           <p class="product-distance mt-3">
             <i class="fas fa-map-marker-alt"></i>
             <% distance = Geocoder::Calculations.distance_between(current_user.address, @product.user.address).round(2) %>
-            <%= distance %> km <%= 's' if distance >= 2 %> from you!
+            <%= distance %> km<%= 's' if distance >= 2 %> from you!
           </p>
         <% end %>
 

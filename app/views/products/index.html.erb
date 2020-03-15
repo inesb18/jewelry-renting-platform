@@ -24,15 +24,11 @@
 
   <div class="text-center">
 
-    <% if current_user && @near_me != "true" %>
-      <%= link_to "products?category=#{@category}&near_me=true" do %>
-        <i class="fas fa-map-marker-alt"></i>  Show rentals near me
-      <% end %>
-    <% elsif !current_user && @near_me != "true" %>
+    <% if @near_me != "true" %>
       <%= link_to "", id:"near-me-unregistered" do %>
         <i class="fas fa-map-marker-alt"></i>  Show rentals near me
       <% end %>
-    <% elsif @near_me == "true" %>
+    <% else %>
       <%= link_to "products?category=#{@category}" do %>
         <i class="fas fa-globe-africa"></i> Show jewelry around the world
       <% end %>
