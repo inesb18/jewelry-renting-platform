@@ -8,7 +8,7 @@ const showMeNearMe = () => {
         const lat = data.coords.latitude;
         const lon = data.coords.longitude;
         console.log(lon);
-        document.location.href = button.href + `?near_me=true&lat=${lat}&lon=${lon}`;
+        document.location.href = button.href + `?&near_me=true&lat=${lat}&lon=${lon}`;
       });
     })
   }
